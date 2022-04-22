@@ -1,0 +1,32 @@
+package com.wellcom.jppt.biz.stu.service;
+
+import com.wellcom.jppt.biz.stu.dao.StudentinfoMapper;
+
+import java.util.List;
+import java.util.Map;
+
+// import com.wellcom.jppt.biz.stu.entity.StudentinfoEntity;
+import com.wellcom.jppt.biz.stu.entity.Studentinfo;
+
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class StudentinfoService {
+    @Autowired
+    StudentinfoMapper studentMapper;
+    // public List<Map<String, Object>> queryStudentInfo(@Param("studentinfo")Studentinfo studentinfo){
+    public List<Map<String, Object>> queryStudentInfo(Studentinfo studentinfo){
+        //List<Map<String, Object>> list = this.studentMapper.queryStudentInfo(studentinfo);
+        return this.studentMapper.queryStudentInfo(studentinfo);
+    }
+
+    public List<Map<String, Object>> queryStudentInfo3301(Studentinfo studentinfo){
+        //List<Map<String, Object>> list = this.studentMapper.queryStudentInfo(studentinfo);
+        return this.studentMapper.queryStudentInfo3301(studentinfo);
+    }
+  
+}
+
+

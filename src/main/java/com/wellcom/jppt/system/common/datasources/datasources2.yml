@@ -1,0 +1,14 @@
+datasource:
+  datasourceId: 嘉兴
+  url: jdbc:oracle:thin:@192.168.191.160:1521:jxdb4g
+  userName: dfo_3304
+  passWord: wellcom
+  code: 
+  databasetype: 
+
+  # datasourceId: 嘉兴2
+  # url: jdbc:oracle:thin:@192.168.191.160:1521:jxdb4g
+  # userName: dfo_3304
+  # passWord: wellcom
+  # code: 
+  # databasetype: 

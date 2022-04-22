@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wellcom.jppt.biz.stu.dao.UserMapper">
+    
+    <!--查询所有用户信息-->
+    <select id="queryUserInfo" resultType="com.wellcom.jppt.biz.stu.entity.User">
+       select *
+       from gen_studentinfo where studentcode = '33050092085729' or studentcode = '33040092574234'
+    </select>
+ 
+    
+</mapper>

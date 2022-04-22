@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wellcom.jppt.biz.stu.dao.StudentinfoMapper">
+    <!-- <resultMap id="BaseResultMap" type="com.wellcom.jppt.biz.bin.StudentinfoEntity">
+        <result column="STUDENTCODE" jdbcType="VARCHAR" property="StudentCode" />
+        <result column="STUDENTNAME" jdbcType="VARCHAR" property="StudentName" />
+    </resultMap> -->
+    <!-- <sql id="BaseResultMap">studentCode,StudentName</sql> -->
+    <!-- <select id="queryStudentInfo" resultType="com.wellcom.jppt.biz.bin.StudentinfoEntity"> -->
+    <select id="queryStudentInfo" resultType="java.util.LinkedHashMap">
+        <!-- select STUDENTCODE ,STUDENTNAME from gen_studentinfo where studentcode = #{studentCode} -->
+        select t.STUDENTCODE ,
+            t.MESSAGE ,
+            sch.SCHOOLNAME ,
+            t.STUDENTNAME ,
+            t.IDNUM       ,
+            t.STATUS,
+            t.DRIVECARTYPE,
+            t.STUNUM      ,
+            t.ERRORCODE   ,
+            t.ISSYNC,
+            ext.TELNUM,
+            t.ICCARDCODE,
+            ext.SECGENCARDINFO   
+        from gen_studentinfo t
+        left join sch_schoolinfo sch
+            on t.schoolcode = sch.schoolcode
+        left join gen_studentextinfo ext
+            on t.studentcode = ext.studentcode
+        WHERE 1 = 1
+        <!-- and t.studentcode = '33050092085758' or t.studentcode = #{studentinfo.StudentCode} -->
+        <if test="studentinfo.studentCode != null and studentinfo.studentCode != ''">
+            <!-- <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode <> 1 ]]>  -->
+            <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode = '33050092085765' ]]> 
+        </if>
+        <if test="studentinfo.idnum != null and studentinfo.idnum != ''">
+            <!-- <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode <> 1 ]]>  -->
+            <![CDATA[ and t.idnum = #{studentinfo.idnum} ]]> 
+        </if>
+    </select>
+    <select id="queryStudentInfo3301" resultType="java.util.LinkedHashMap">
+        <!-- select STUDENTCODE ,STUDENTNAME from gen_studentinfo where studentcode = #{studentCode} -->
+        select t.STUDENTCODE,
+            t.MESSAGE,
+            sch.SCHOOLNAME,
+            t.STUDENTNAME,
+            t.IDNUM,
+            substr(t.USERSTATUS, -2) STATUS,
+            ct.CARTYPECODE as DRIVECARTYPE,
+            t.STUNUM,
+            t.ERRORCODE,
+            t.ISSYNC,
+            ext.TELPHONENUM as TELNUM,
+            card.CARDCODE as ICCARDCODE,
+            t.SECCDKEY as SECGENCARDINFO
+        from gen_studentinfo t
+        left join GEN_DRIVESCHOOL sch
+            on t.schoolcode = sch.DRIVESCHOOLCODE
+        left join gen_stuexpandinfo ext
+            on t.studentcode = ext.studentcode
+        left join GEN_STUDENTCARDINFO card
+            on t.studentcode = card.studentcode
+        left join TCH_DRIVECARTYPE ct
+            on ct.DRIVECARTYPE = t.DRIVECARTYPE
+        WHERE 1 = 1
+        <!-- and t.studentcode = '33050092085758' or t.studentcode = #{studentinfo.StudentCode} -->
+        <if test="studentinfo.studentCode != null and studentinfo.studentCode != ''">
+            <!-- <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode <> 1 ]]>  -->
+            <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode = '33050092085765' ]]> 
+        </if>
+        <if test="studentinfo.idnum != null and studentinfo.idnum != ''">
+            <!-- <![CDATA[ and t.studentcode = #{studentinfo.studentCode} or t.studentcode <> 1 ]]>  -->
+            <![CDATA[ and t.idnum = #{studentinfo.idnum} ]]> 
+        </if>
+    </select>
+</mapper>

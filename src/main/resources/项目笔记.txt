@@ -1,0 +1,10 @@
+1. Field studentMapper in com.wellcom.jppt.biz.stu.service.StudentinfoService required a bean of type 'com.wellcom.jppt.biz.stu.dao.StudentinfoMapper' that could not be found.
+    要设置druiddbconfig.java扫描包路径，
+
+2. model的字段>entity的字段，并且model的字段属性可以与entity不一致，model是用于前端页面数据展示的，而entity则是与数据库进行交互做存储用途
+
+3. 注解加Aop实现数据切换及还原，数据库切换后用完后要还原
+
+4. DynamicDataSource 切换数据源重要类
+    DruidDBConfig    阿里库数据源管理重要类
+    YamFactory       配置文件映射类，重要工厂类

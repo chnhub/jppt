@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- mybatis的配置项注意顺序，顺序颠倒则报错 -->
+    <settings>
+        <!-- <setting name="useGeneratedKeys" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/> -->
+        <!-- 空值的字段都显示 -->
+        <setting name="callSettersOnNulls" value="true"/>  
+
+    </settings>
+
+    <!-- 使用pagehelp插件，数据库类型目前写死，后期写成类 -->
+
+</configuration>

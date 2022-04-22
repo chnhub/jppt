@@ -1,0 +1,25 @@
+wellcom:
+  list2: [cat,dog,pig]
+  defaultDB: jxdb4g # 优先级更高的默认数据库配置，暂加入失败
+  datasource:    
+    - datasourceId: jxdb4g_3304 #_default加此后缀为默认数据库
+      url: jdbc:oracle:thin:@192.168.191.160:1521:jxdb4g
+      userName: dfo_3304
+      passWord: wellcom
+      areacode: 3304
+      databasetype: 
+      dataSourceName: 嘉兴计时
+    - datasourceId: jxdb4g_default
+      url: jdbc:oracle:thin:@192.168.191.160:1521:jxdb4g
+      userName: dfo
+      passWord: wellcom
+      areacode: 3306
+      databasetype: 
+      dataSourceName: 4G通用
+    - datasourceId: hangzhouyw
+      url: jdbc:oracle:thin:@192.168.191.188:1521:hangzhouyw
+      userName: dfo
+      passWord: wellcom
+      areacode: 3301
+      databasetype: 
+      dataSourceName: 杭州计时
